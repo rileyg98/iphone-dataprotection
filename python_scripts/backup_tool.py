@@ -41,7 +41,7 @@ def extract_backup(backup_path, output_path, password=""):
             return
         manifest["password"] = password
         makedirs(output_path)
-        plistlib.writePlist(manifest, output_path + "/Manifest.plist")
+        plistlib.writePlist(manifest, output_path + "\Manifest.plist")
        
         mbdb.keybag = kb
         mbdb.extract_backup(output_path)
