@@ -117,7 +117,7 @@ class MBDB(object):
             # makedirs throw an exception, my code is ugly =)
             if record.is_directory():
                 try:
-                    os.makedirs(os.path.join(output_path, record.domain, record.path))
+                    os.makedirs(os.path.normcase(os.path.join(output_path, record.domain, record.path)))
                 except:
                     pass
 
@@ -143,7 +143,7 @@ class MBDB(object):
 
         # write output file
         out_file = re.sub(r'[:|*<>?"]', "_", out_file)
-        output_path = os.path.join(output_path, record.domain, out_file)
+        output_path = os.path.normcase(os.path.join(output_path, record.domain, out_file))
         print("Writing %s" % output_path)
         f2 = file(output_path, 'wb')
 
